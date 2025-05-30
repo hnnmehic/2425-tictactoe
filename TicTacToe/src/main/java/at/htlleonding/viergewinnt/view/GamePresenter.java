@@ -1,5 +1,6 @@
 package at.htlleonding.viergewinnt.view;
 
+import at.htlleonding.viergewinnt.controller.Repository;
 import at.htlleonding.viergewinnt.model.GameModel;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -9,6 +10,7 @@ public class GamePresenter {
 
     private final GameModel model;
     private final GameView view;
+    Repository repository = new Repository();
 
     public GamePresenter(GameModel model, GameView view) {
         this.model = model;
@@ -34,6 +36,7 @@ public class GamePresenter {
                         char winner = model.checkWinner();
                         if (winner != ' ') {
                             showWinner(winner);
+                            repository.insert(winner);
                             disableAllButtons();
                         }
                     }
