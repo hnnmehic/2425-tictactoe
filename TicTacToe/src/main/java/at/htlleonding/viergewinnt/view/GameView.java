@@ -16,6 +16,8 @@ public class GameView extends VBox {
     private final Label currentPlayerLabel = new Label("Current Player : ");
     private final Label currentPlayer = new Label();
 
+    private final Button resetButton = new Button("Reset");
+
 
     public GameView() {
         this.buttons = new Button[3][3];
@@ -23,7 +25,7 @@ public class GameView extends VBox {
         VBox currentPlayerBox = new VBox(currentPlayerLabel,currentPlayer);
         currentPlayerBox.setAlignment(Pos.CENTER);
 
-        this.getChildren().addAll(currentPlayerBox,fillGridPaneWithButtons());
+        this.getChildren().addAll(currentPlayerBox,fillGridPaneWithButtons(),resetButton);
         this.setAlignment(Pos.CENTER);
         this.setSpacing(20);
 
@@ -47,6 +49,10 @@ public class GameView extends VBox {
 
     public Button[][] getButtons() {
         return buttons;
+    }
+
+    public Button getResetButton() {
+        return resetButton;
     }
 
     public void setCurrentPlayerLabel(char player) {

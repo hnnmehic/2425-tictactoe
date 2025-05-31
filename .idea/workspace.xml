@@ -95,7 +95,7 @@
       <option name="presentableId" value="Default" />
       <updated>1743962153712</updated>
       <workItem from="1743962279192" duration="628000" />
-      <workItem from="1748541456885" duration="2607000" />
+      <workItem from="1748541456885" duration="6509000" />
     </task>
     <task id="LOCAL-00001" summary="Add initial project structure and configuration files for Quarkus application&#10;&#10;- Created .gitignore to exclude build artifacts and IDE-specific files&#10;- Added database configuration files and scripts for H2 database setup&#10;- Implemented core application classes including GameModel, GameView, and GamePresenter&#10;- Set up Maven project with necessary dependencies and plugins&#10;- Included unit tests for database connection validation">
       <option name="closed" value="true" />
@@ -105,7 +105,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748541550648</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add database integration and update game logic&#10;&#10;- Implemented Repository class for database interactions&#10;- Added insert method to save game results to the database&#10;- Updated GameModel to check for winners and save results&#10;- Modified GamePresenter to handle winner notifications and database updates&#10;- Created necessary XML configuration files for project setup">
+      <option name="closed" value="true" />
+      <created>1748614665512</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1748614665512</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -113,6 +121,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add initial project structure and configuration files for Quarkus application&#10;&#10;- Created .gitignore to exclude build artifacts and IDE-specific files&#10;- Added database configuration files and scripts for H2 database setup&#10;- Implemented core application classes including GameModel, GameView, and GamePresenter&#10;- Set up Maven project with necessary dependencies and plugins&#10;- Included unit tests for database connection validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add initial project structure and configuration files for Quarkus application&#10;&#10;- Created .gitignore to exclude build artifacts and IDE-specific files&#10;- Added database configuration files and scripts for H2 database setup&#10;- Implemented core application classes including GameModel, GameView, and GamePresenter&#10;- Set up Maven project with necessary dependencies and plugins&#10;- Included unit tests for database connection validation" />
+    <MESSAGE value="Add database integration and update game logic&#10;&#10;- Implemented Repository class for database interactions&#10;- Added insert method to save game results to the database&#10;- Updated GameModel to check for winners and save results&#10;- Modified GamePresenter to handle winner notifications and database updates&#10;- Created necessary XML configuration files for project setup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add database integration and update game logic&#10;&#10;- Implemented Repository class for database interactions&#10;- Added insert method to save game results to the database&#10;- Updated GameModel to check for winners and save results&#10;- Modified GamePresenter to handle winner notifications and database updates&#10;- Created necessary XML configuration files for project setup" />
   </component>
 </project>

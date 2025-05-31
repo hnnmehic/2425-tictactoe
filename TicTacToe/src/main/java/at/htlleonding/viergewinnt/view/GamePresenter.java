@@ -17,9 +17,17 @@ public class GamePresenter {
         this.view = view;
         initializeButtons();
         updateCurrentPlayerLabel();
-
+        attachEvents();
     }
 
+
+    private void attachEvents() {
+        view.getResetButton().setOnAction(e -> {
+            model.resetGame();
+            updateCurrentPlayerLabel();
+            resetButtons();
+        });
+    }
     private void initializeButtons() {
         Button[][] buttons = view.getButtons();
 
@@ -37,7 +45,7 @@ public class GamePresenter {
                         if (winner != ' ') {
                             showWinner(winner);
                             repository.insert(winner);
-                            disableAllButtons();
+                            resetButtons();
                         }
                     }
                 });
@@ -57,10 +65,11 @@ public class GamePresenter {
         view.setCurrentPlayerLabel(model.getCurrentPlayer());
     }
 
-    private void disableAllButtons() {
+    private void resetButtons() {
         for (Button[] row : view.getButtons()) {
             for (Button btn : row) {
-                btn.setDisable(true);
+                btn.setDisable(false);
+                btn.setText(" ");
             }
         }
     }
