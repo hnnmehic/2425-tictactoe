@@ -1,10 +1,13 @@
 package at.htlleonding.viergewinnt.view;
 
 import at.htlleonding.viergewinnt.controller.Repository;
+import at.htlleonding.viergewinnt.model.CurrentPlayer;
 import at.htlleonding.viergewinnt.model.GameModel;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
+
+import java.util.List;
 
 public class GamePresenter {
 
@@ -18,6 +21,7 @@ public class GamePresenter {
         initializeButtons();
         updateCurrentPlayerLabel();
         attachEvents();
+        showWinnerList();
     }
 
 
@@ -26,6 +30,8 @@ public class GamePresenter {
             model.resetGame();
             updateCurrentPlayerLabel();
             resetButtons();
+        });
+        view.getDeleteButton().setOnAction(e -> {deleteGame();
         });
     }
     private void initializeButtons() {
@@ -41,8 +47,8 @@ public class GamePresenter {
                         buttons[r][c].setText(String.valueOf(model.getBoard()[r][c]));
                         updateCurrentPlayerLabel();
 
-                        char winner = model.checkWinner();
-                        if (winner != ' ') {
+                        CurrentPlayer winner = model.checkWinner();
+                        if (winner != null) {
                             showWinner(winner);
                             repository.insert(winner);
                             resetButtons();
@@ -53,7 +59,7 @@ public class GamePresenter {
         }
     }
 
-    private void showWinner(char winner) {
+    private void showWinner(CurrentPlayer winner) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Spiel beendet");
         alert.setHeaderText(null);
@@ -72,6 +78,22 @@ public class GamePresenter {
                 btn.setText(" ");
             }
         }
+    }
+
+    private List<String> showWinnerList() {
+        List<String> winnerList = repository.getWinnerList();
+        for (int i = 0; i < winnerList.size(); i++) {
+            System.out.println(i+": "+winnerList.get(i));
+        };
+        return winnerList;
+    }
+
+
+
+    private void deleteGame() {
+        String idToDelete = view.getGameId().getText();
+        repository.deleteWinner(Integer.parseInt(idToDelete));
+
     }
 
 }

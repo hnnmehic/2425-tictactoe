@@ -1,10 +1,12 @@
 package at.htlleonding.viergewinnt.view;
 
+import at.htlleonding.viergewinnt.model.CurrentPlayer;
 import at.htlleonding.viergewinnt.model.GameModel;
 import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
@@ -12,6 +14,10 @@ public class GameView extends VBox {
 
 
     private final Button[][] buttons;
+
+    private final TextField gameId = new TextField();
+    private final Button deleteButton  =new Button("Lösche");
+
 
     private final Label currentPlayerLabel = new Label("Current Player : ");
     private final Label currentPlayer = new Label();
@@ -21,8 +27,9 @@ public class GameView extends VBox {
 
     public GameView() {
         this.buttons = new Button[3][3];
+        gameId.setPromptText("Game id to delete");
 
-        VBox currentPlayerBox = new VBox(currentPlayerLabel,currentPlayer);
+        VBox currentPlayerBox = new VBox(gameId,deleteButton,currentPlayerLabel,currentPlayer);
         currentPlayerBox.setAlignment(Pos.CENTER);
 
         this.getChildren().addAll(currentPlayerBox,fillGridPaneWithButtons(),resetButton);
@@ -55,7 +62,15 @@ public class GameView extends VBox {
         return resetButton;
     }
 
-    public void setCurrentPlayerLabel(char player) {
+    public void setCurrentPlayerLabel(CurrentPlayer player) {
         currentPlayer.setText(String.valueOf(player));
+    }
+
+    public TextField getGameId() {
+        return gameId;
+    }
+
+    public Button getDeleteButton() {
+        return deleteButton;
     }
 }
